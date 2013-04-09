@@ -43,6 +43,28 @@ class Module implements FormElementProviderInterface
     {
         return array(
             'factories' => array(
+                'Application\Form\ContatoFieldset' => function($sm) {
+                    $serviceLocator = $sm->getServiceLocator();
+                    $entityManager  = $serviceLocator->get('Doctrine\ORM\EntityManager');
+                    $hydrator       = new \DoctrineModule\Stdlib\Hydrator\DoctrineObject($entityManager, 'Application\Entity\Contato');
+                    $fieldset = new Form\ContatoFieldset();
+                    $fieldset
+                        ->setObject(new Entity\Contato())
+                        ->setHydrator($hydrator);
+
+                    return $fieldset;
+                },
+                'Application\Form\CampusFieldset' => function($sm) {
+                    $serviceLocator = $sm->getServiceLocator();
+                    $entityManager  = $serviceLocator->get('Doctrine\ORM\EntityManager');
+                    $hydrator       = new \DoctrineModule\Stdlib\Hydrator\DoctrineObject($entityManager, 'Application\Entity\Campus');
+                    $fieldset = new Form\CampusFieldset();
+                    $fieldset
+                        ->setObject(new Entity\Campus())
+                        ->setHydrator($hydrator);
+
+                    return $fieldset;
+                },
                 'Application\Form\FuncionarioFieldset' => function($sm) {
                     $serviceLocator = $sm->getServiceLocator();
                     $entityManager  = $serviceLocator->get('Doctrine\ORM\EntityManager');
@@ -54,7 +76,7 @@ class Module implements FormElementProviderInterface
                         ->setHydrator($hydrator);
 
                     return $fieldset;
-                }
+                },
             ),
         );
     }
