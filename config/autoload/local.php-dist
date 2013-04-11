@@ -5,6 +5,7 @@ return array(
             // default connection name
             'orm_default' => array(
                 'params' => array(
+                    'dbname'   => 'NOME DO BANCO',
                     'user'     => 'USER',
                     'password' => 'PASSWORD',
                 )
