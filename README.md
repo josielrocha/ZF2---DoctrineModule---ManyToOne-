@@ -11,7 +11,8 @@ informações acesse a thread no Google Groups (https://groups.google.com/forum/
 Instalação
 ----------
 
-Após a clonagem do repositório (), entre na raiz do projeto e siga os seguintes passos:
+Após a clonagem do repositório (`git clone git@github.com:josielrocha/ZF2---DoctrineModule---ManyToOne-.git`),
+ entre na raiz do projeto e siga os seguintes passos:
 
 1. Via linha de comando, execute `composer install`
 2. Crie um banco de dados:
