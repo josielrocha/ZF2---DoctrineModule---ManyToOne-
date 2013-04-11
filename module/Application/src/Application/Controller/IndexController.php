@@ -21,6 +21,13 @@ class IndexController extends AbstractActionController
             return $this->redirect()->toRoute('application/pagination');
         }
 
+        //
+        // PAGINAÇÃO
+        //
+        // n => Número de resultados por página
+        // p => Página a ser exibida
+        //
+
         return new ViewModel(array(
             'itens'  => $this->getService()->usePaginator()->setPaginatorOptions(array('n' => 2, 'p' => $page))->findAll(),
             'params' => $this->params()->fromRoute(),
