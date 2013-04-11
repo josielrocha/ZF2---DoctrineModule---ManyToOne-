@@ -32,5 +32,7 @@
 <?php if(count($this->itens)):?>
     <?=$this->paginationControl($this->itens,
             'Sliding', 'pagination', array(
-            'route' => 'application/default', 'params' => $this->params));?>
+            'route' => 'application/pagination', 'params' => array(
+                'controller' => 'index',
+            )));?>
 <?php endif;?>

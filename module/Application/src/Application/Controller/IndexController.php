@@ -22,7 +22,7 @@ class IndexController extends AbstractActionController
         }
 
         return new ViewModel(array(
-            'itens'  => $this->getService()->usePaginator()->findAll(),
+            'itens'  => $this->getService()->usePaginator()->setPaginatorOptions(array('n' => 1, 'p' => $page))->findAll(),
             'params' => $this->params()->fromRoute(),
         ));
     }
