@@ -1,0 +1,15 @@
+<a href="<?=$this->url('application');?>">Voltar</a>
+
+<h1>View Campus</h1>
+
+<p><?=$this->campus->getId();?> - <?=$this->campus->getNome();?></p>
+
+<?php
+$contatos = $this->campus->getContatos();
+if (count($contatos)):
+?>
+    <h2>Contatos</h2>
+    <?php foreach($campus->getContatos() as $contato):?>
+        <p><?=$contato->getId();?>: <?=$contato->getNome();?></p>
+    <?php endforeach; ?>
+<?php endif;?>

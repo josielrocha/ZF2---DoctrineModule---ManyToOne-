@@ -5,7 +5,7 @@ namespace Application\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Application\Entity\CampusRepository")
  * @ORM\Table(name="tbl_campus")
  */
 class Campus
@@ -32,7 +32,7 @@ class Campus
      * @var Contato[]
      * @access protected
      *
-     * @ORM\ManyToMany(targetEntity="Application\Entity\Contato", cascade={"persist", "remove"})
+     * @ORM\ManyToMany(targetEntity="Application\Entity\Contato", cascade={"persist"})
      * @ORM\JoinTable(
      *  name="campus_contato",
      *  joinColumns={@ORM\JoinColumn(referencedColumnName="id_campus", name="id_campus")},

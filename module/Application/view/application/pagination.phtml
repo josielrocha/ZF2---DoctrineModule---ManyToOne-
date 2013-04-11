@@ -1,0 +1,32 @@
+<?php if ($this->pageCount): ?>
+<div class="pagination pagination-toolbar">
+    <ul class="pagination-list">
+        <?php
+        if(isset($this->previous)):
+            $class = '';
+            $url   = $this->url($this->route, array('controller' => $this->params['controller'], 'page' => $this->previous));
+        else:
+            $class = 'disabled';
+            $url = '#';
+        endif;
+        ?>
+        </li><li class="<?=$class?>"><a href="<?=$this->url($this->route, array('controller' => $this->params['controller'], 'page' => $this->first));?>"><i class="icon-backward"></i></a></li>
+        </li><li class="<?=$class?>"><a href="<?=$url;?>"><i class="icon-step-backward"></i></a></li>
+
+        <?php foreach($this->pagesInRange as $page):?>
+            <li><a href="<?=$this->url($this->route, array('controller' => $this->params['controller'], 'page' => $page))?>"><i class="icon"><?=$page;?></i></a>
+        <?php endforeach;?>
+
+        <?php
+        if(isset($this->next)):
+            $class = '';
+            $url   = $this->url($this->route, array('controller' => $this->params['controller'], 'page' => $this->next));
+        else:
+            $class = 'disabled';
+            $url = '#';
+        endif;
+        ?>
+        </li><li class="<?=$class?>"><a href="<?=$url;?>"><i class="icon-step-forward"></i></a></li>
+        </li><li class="<?=$class?>"><a href="<?=$this->url($this->route, array('controller' => $this->params['controller'], 'page' => $this->last));?>"><i class="icon-forward"></i></a></li>
+    </ul>
+<?php endif; ?>

@@ -1,0 +1,8 @@
+<form action="<?=$this->uri;?>" method="post">
+    <p>Tem certeza que deseja excluir "<i><?=$this->entity->getNome();?></i>"?</p>
+    <input type="hidden" name="id" value="<?=$this->entity->getId();?>"/>
+    <div class="actions">
+        <input type="submit" class="btn btn-mini btn-danger" name="del" value="Sim"/>
+        <input type="submit" class="btn btn-mini btn-primary" name="del" value="Não"/>
+    </div>
+</form>

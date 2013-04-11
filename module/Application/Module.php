@@ -21,6 +21,9 @@ class Module implements FormElementProviderInterface
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+
+        ini_set('display_errors', true);
+        date_default_timezone_set('America/Sao_Paulo');
     }
 
     public function getConfig()

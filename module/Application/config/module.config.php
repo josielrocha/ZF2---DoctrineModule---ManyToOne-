@@ -41,12 +41,28 @@ return array(
                     'default' => array(
                         'type'    => 'Segment',
                         'options' => array(
-                            'route'    => '/[:controller[/:action]]',
+                            'route'    => '/[:controller[/:action[/:id]]]',
                             'constraints' => array(
                                 'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'id'         => '[0-9]+',
                             ),
                             'defaults' => array(
+                                'action' => 'index',
+                            ),
+                        ),
+                    ),
+                    'pagination' => array(
+                        'type'    => 'Segment',
+                        'options' => array(
+                            'route'    => '[/:controller]/index[/:page]',
+                            'constraints' => array(
+                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'page'       => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'index',
+                                'page'       => 1,
                             ),
                         ),
                     ),
@@ -57,6 +73,9 @@ return array(
     'service_manager' => array(
         'factories' => array(
             'translator' => 'Zend\I18n\Translator\TranslatorServiceFactory',
+        ),
+        'invokables'     => array(
+            'Application\Service\Campus' => 'Application\Service\Campus',
         ),
     ),
     'translator' => array(
@@ -85,6 +104,7 @@ return array(
             'application/index/index' => __DIR__ . '/../view/application/index/index.phtml',
             'error/404'               => __DIR__ . '/../view/error/404.phtml',
             'error/index'             => __DIR__ . '/../view/error/index.phtml',
+            'pagination'              => __DIR__ . '/../view/application/pagination.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view',

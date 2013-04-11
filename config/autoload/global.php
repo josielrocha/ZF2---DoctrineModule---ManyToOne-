@@ -21,8 +21,8 @@ return array(
                     'host'     => 'localhost',
                     'port'     => '3306',
                     'user'     => 'root',
-                    'password' => 'SENHA AQUI',
-                    'dbname'   => 'BANCO AQUI',
+                    'password' => 're696658',
+                    'dbname'   => 'zf2application',
                 )
             )
         ),

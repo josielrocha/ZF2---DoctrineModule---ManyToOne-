@@ -1,0 +1,18 @@
+<a href="<?=$this->url('application');?>">Voltar</a>
+
+<h1>Edit campus</h1>
+
+<?php if (!$this->status):?>
+<div class="error-warning">
+    Verifique atentamente o dados informados e envie novamente
+</div>
+<?php endif;?>
+
+<?php
+$form = $this->form;
+$form->setAttribute('method', 'post');
+$form->prepare();
+
+echo $this->form()->openTag($form);
+echo $this->formCollection($form);
+echo $this->form()->closeTag();
